@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="widith=device-width, initial-scale=1.0">
+    <title>upload and display image on site</title>
+    <link rel="stylesheet" href="javaexcersice/style.css">
+</head>
+<body style="background: url(fam5.jpg);
+background-size: cover;
+background-repeat: no-repeat;"   text="black" background="farmz.jpg" > >>
+    <div class="container" id="imgBox">
+        <div id="prevText"></div>
+        <textarea id="textBox" placeholder="add information about the plant"></textarea>
+
+        <input type="file" accept="image/*" name="image" id="file" style="display: none" 
+        onchange="loadFile(event)">
+        <label for ="file"><img src="images/upload.png" class="upload-icon"></label>
+    </div>
+    <script>
+        var textBox = document.getElementById("textBox");
+        var imgBox = document.getElementById("imgBox");
+     textBox.onkeyup = textBox.onkeypress = function(){
+        document.getElementById("prevText").innerHTML = this.value;
+     } 
+
+     var loadFile = function(event){
+        imgBox.style.backgroundImage = "url(" +URL.createObjectURL(event.target.files[0])+ ")";
+     }
+   </script>
+    
+</body>
+</html>
